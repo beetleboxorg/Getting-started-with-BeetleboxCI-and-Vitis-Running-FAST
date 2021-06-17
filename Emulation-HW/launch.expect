@@ -1,0 +1,46 @@
+#!/usr/bin/expect -f
+
+set timeout -1
+
+spawn /tools/Xilinx/Vitis/2020.1/bin/launch_emulator -device-family ultrascale -target hw_emu -qemu-args-file Emulation-HW/package/qemu_args.txt -pmc-args-file Emulation-HW/package/pmu_args.txt -pl-sim-dir Emulation-HW/package/sim/behav_waveform/xsim -sd-card-image Emulation-HW/package/sd_card.img -enable-prep-target -xtlm-log-state WAVEFORM_AND_LOG -forward-port 2222 22 
+
+expect "PetaLinux 2020.1 zynqmp-common-2020_1 ttyPS0"
+
+expect "# "
+send "\n"
+
+expect "# "
+send "\n"
+
+expect "# "
+send "cd /mnt\n"
+
+expect "# "
+send "cd sd-mmcblk0p1\n"
+
+expect "# "
+send "source ./init.sh\n"
+
+expect "# "
+send "export XCL_EMULATION_MODE=hw_emu"
+send "\n"
+
+expect "# "
+send "export XILINX_XRT=/usr"
+send "\n"
+
+expect "# "
+send "export XILINX_VITIS=/mnt/sd-mmcblk0p1/"
+send "\n"
+
+expect "# "
+send "export LD_LIBRARY_PATH=/mnt/sd-mmcblk0p1/:/tmp"
+send "\n"
+
+expect "# "
+send "./test_fast_CI small_image.png\n"
+
+expect "# "
+send "exit\n"
+exit 0
+

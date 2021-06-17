@@ -1,0 +1,113 @@
+Timeline Trace
+Generated on: 2021-06-14 10:53:44
+Msec since Epoch: 1623668024623
+Target platform: Xilinx
+Tool version: 2020.1
+XRT build version: 2.6.0
+Build version branch: 2020.1
+Build version hash: 2d6bfe4ce91051d4e5b499d38fc493586dd4859a
+Build version date: 2020-05-26 18:53:06 
+
+
+Time_msec,Name,Event,Address_Port,Size,Latency_cycles,Start_cycles,End_cycles,Latency_usec,Start_msec,End_msec,
+788.762521,clGetPlatformIDs|General,START,,,,,,,,,,,0,
+796.408998,clGetPlatformIDs|General,END,,,,,,,,,,,0,
+797.636706,clGetPlatformIDs|General,START,,,,,,,,,,,1,
+798.554968,clGetPlatformIDs|General,END,,,,,,,,,,,1,
+799.094429,clGetPlatformInfo|General,START,,,,,,,,,,,2,
+799.661798,clGetPlatformInfo|General,END,,,,,,,,,,,2,
+799.865275,clGetPlatformInfo|General,START,,,,,,,,,,,3,
+800.052306,clGetPlatformInfo|General,END,,,,,,,,,,,3,
+801.822583,clGetDeviceIDs|General,START,,,,,,,,,,,4,
+803.553306,clGetDeviceIDs|General,END,,,,,,,,,,,4,
+803.792921,clGetDeviceIDs|General,START,,,,,,,,,,,5,
+803.952737,clGetDeviceIDs|General,END,,,,,,,,,,,5,
+804.393321,clRetainDevice|General,START,,,,,,,,,,,6,
+804.562937,clRetainDevice|General,END,,,,,,,,,,,6,
+804.798445,clRetainDevice|General,START,,,,,,,,,,,7,
+804.894875,clRetainDevice|General,END,,,,,,,,,,,7,
+805.123137,clCreateContext|General,START,,,,,,,,,,,8,
+808.674383,clCreateContext|General,END,,,,,,,,,,,8,
+808.923906,clCreateCommandQueue|General,START,,,,,,,,,,,9,
+810.50426,clCreateCommandQueue|General,END,,,,,,,,,,,9,
+810.85366,clGetDeviceInfo|General,START,,,,,,,,,,,10,
+811.916168,clGetDeviceInfo|General,END,,,,,,,,,,,10,
+812.25806,clGetDeviceInfo|General,START,,,,,,,,,,,11,
+812.383245,clGetDeviceInfo|General,END,,,,,,,,,,,11,
+885.945029,clCreateProgramWithBinary|General,START,,,,,,,,,,,12,
+1501.67869,clCreateProgramWithBinary|General,END,,,,,,,,,,,12,
+1503.330751,clCreateKernel|General,START,,,,,,,,,,,13,
+1539.694213,clCreateKernel|General,END,,,,,,,,,,,13,
+1540.039413,clCreateBuffer|General,START,,,,,,,,,,,14,
+1540.811582,clCreateBuffer|General,END,,,,,,,,,,,14,
+1540.935151,clCreateBuffer|General,START,,,,,,,,,,,15,
+1541.018397,clCreateBuffer|General,END,,,,,,,,,,,15,
+1541.171505,clSetKernelArg|General,START,,,,,,,,,,,16,
+1550.773951,clSetKernelArg|General,END,,,,,,,,,,,16,
+1550.97052,clSetKernelArg|General,START,,,,,,,,,,,17,
+1551.172028,clSetKernelArg|General,END,,,,,,,,,,,17,
+1551.307213,clSetKernelArg|General,START,,,,,,,,,,,18,
+1552.061967,clSetKernelArg|General,END,,,,,,,,,,,18,
+1552.182474,clSetKernelArg|General,START,,,,,,,,,,,19,
+1552.292951,clSetKernelArg|General,END,,,,,,,,,,,19,
+1552.387151,clSetKernelArg|General,START,,,,,,,,,,,20,
+1552.475628,clSetKernelArg|General,END,,,,,,,,,,,20,
+1552.705828,clEnqueueWriteBuffer|366865216768,START,,,,,,,,,,,21,
+1563.34429,clEnqueueWriteBuffer|366865216768,END,,,,,,,,,,,21,
+1563.725843,clEnqueueTask|366865216768,START,,,,,,,,,,,22,
+1567.049366,WRITE_BUFFER,QUEUE,0X0|Unknown,16384,,,,,,,,,
+1568.882674,WRITE_BUFFER,SUBMIT,0X0|Unknown,16384,,,,,,,,,
+1570.532136,DEPENDENCY_EVENT,,1,2,
+1571.169505,WRITE_BUFFER,START,0X0|Unknown|0X7fae965fe0,16384,,,,,,,1,2,
+1573.05392,DEPENDENCY_EVENT,,1,2,
+1576.069474,KERNEL|xilinx_zcu104_base_202010_1-0|krnl_fast|fast_accel|1:1:1|all,QUEUE,0X556ADBB610,1,,,,,,,,,
+1578.48749,WRITE_BUFFER,END,0X0|Unknown|0X7fae965fe0,16384,,,,,,,1,2|2,
+1578.923213,clEnqueueTask|366865216768,END,,,,,,,,,,,22,
+1580.059028,KERNEL|xilinx_zcu104_base_202010_1-0|krnl_fast|fast_accel|1:1:1|all,SUBMIT,0X556ADBB610,1,,,,,,,,,
+1580.151874,clEnqueueReadBuffer|366865216768,START,,,,,,,,,,,23,
+1580.509843,KERNEL|xilinx_zcu104_base_202010_1-0|krnl_fast|fast_accel|1:1:1|all,START,0X556ADBB610,1,,,,,,,2,None,
+1581.290474,DEPENDENCY_EVENT,,2,3,
+1581.606013,READ_BUFFER,QUEUE,0X4000|Unknown,16384,,,,,,,,,
+1589.619074,KERNEL|xilinx_zcu104_base_202010_1-0|krnl_fast|fast_accel|1:1:1|fast_accel_1|,START,0X556ADE8D80,1,1,,,,,,,,
+31876.24624,KERNEL|xilinx_zcu104_base_202010_1-0|krnl_fast|fast_accel|1:1:1|fast_accel_1|,END,0X556ADE8D80,1,1,,,,,,,,
+31877.00092,KERNEL|xilinx_zcu104_base_202010_1-0|krnl_fast|fast_accel|1:1:1|all,END,0X556ADBB610,1,,,,,,,2,3,
+31878.03731,READ_BUFFER,SUBMIT,0X4000|Unknown,16384,,,,,,,,,
+31879.80831,READ_BUFFER,START,0X4000|Unknown|0X7fb0168fe0,16384,,,,,,,3,None,
+31887.56421,READ_BUFFER,END,0X4000|Unknown|0X7fb0168fe0,16384,,,,,,,3,None,
+31888.56117,clEnqueueReadBuffer|366865216768,END,,,,,,,,,,,23,
+31888.88175,clReleaseEvent|General,START,,,,,,,,,,,24,
+31889.25837,clReleaseEvent|General,END,,,,,,,,,,,24,
+31889.46554,clFinish|General,START,,,,,,,,,,,25,
+31889.66695,clFinish|General,END,,,,,,,,,,,25,
+32022.84912,clReleaseEvent|General,START,,,,,,,,,,,26,
+32023.11803,clReleaseEvent|General,END,,,,,,,,,,,26,
+32023.84652,clReleaseMemObject|General,START,,,,,,,,,,,27,
+32024.10963,clReleaseMemObject|General,END,,,,,,,,,,,27,
+32024.62031,clReleaseMemObject|General,START,,,,,,,,,,,28,
+32024.71483,clReleaseMemObject|General,END,,,,,,,,,,,28,
+32024.84904,clReleaseKernel|General,START,,,,,,,,,,,29,
+32028.29124,clReleaseKernel|General,END,,,,,,,,,,,29,
+32028.54666,clReleaseProgram|General,START,,,,,,,,,,,30,
+32039.04874,clReleaseProgram|General,END,,,,,,,,,,,30,
+32039.65954,clReleaseCommandQueue|General,START,,,,,,,,,,,31,
+32040.23209,clReleaseCommandQueue|General,END,,,,,,,,,,,31,
+32040.47058,clReleaseContext|General,START,,,,,,,,,,,32,
+37080.16768,clReleaseContext|General,END,,,,,,,,,,,32,
+37080.85973,clReleaseDevice|General,START,,,,,,,,,,,33,
+37081.19442,clReleaseDevice|General,END,,,,,,,,,,,33,
+37081.47693,clReleaseDevice|General,START,,,,,,,,,,,34,
+37081.65821,clReleaseDevice|General,END,,,,,,,,,,,34,
+Footer,begin
+Project,krnl_fast,
+Stall profiling,false,
+Target,Software Emulation,
+Platform,xilinx_zcu104_base_202010_1-0,
+Read/Write Thread,0X7FAE965FE0
+Read/Write Thread,0X7FB0168FE0
+Device,xilinx_zcu104_base_202010_1-0,begin
+DDR Banks,begin
+Bank,0,0X000000000
+DDR Banks,end
+Device,xilinx_zcu104_base_202010_1-0,end
+Footer,end
+
