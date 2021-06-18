@@ -19,6 +19,7 @@ jobs:
     - sw_emu.sh
     - Emulation-SW/launch.sh
     - Emulation-SW/launch.expect
+    - Emulation-HW/package
   steps:
    - run:
       name: Download files
@@ -56,6 +57,7 @@ jobs:
     - hw_emu.sh
     - Emulation-HW/launch.sh
     - Emulation-HW/launch.expect
+    - Emulation-HW/package
   input: 
    artifact: 
     - xilinx_zcu104_base_202010_1.zip
