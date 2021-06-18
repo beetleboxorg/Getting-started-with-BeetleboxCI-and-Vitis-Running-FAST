@@ -71,3 +71,4 @@ Now we have verified our FAST locally, we will integrate it with BeetleboxCI. Us
 2. Navigate to the logs of the test-se-emulation
 3. Click logs
 4. Compare this to the simulation output of the vitis terminal 
+
