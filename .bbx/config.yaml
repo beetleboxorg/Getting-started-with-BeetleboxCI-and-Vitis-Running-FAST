@@ -12,7 +12,7 @@ jobs:
    artifact: 
     - xilinx_zcu104_base_202010_1.zip
     - aarch64-xilinx-linux.zip
-    - xilinx-zynqmp-common-v2020.1.tar.gz
+    - xilinx-zynqmp-common-v2020.1.zip
   output:
    artifact:
     - Emulation-SW
@@ -59,7 +59,7 @@ jobs:
    artifact: 
     - xilinx_zcu104_base_202010_1.zip
     - aarch64-xilinx-linux.zip
-    - xilinx-zynqmp-common-v2020.1.tar.gz
+    - xilinx-zynqmp-common-v2020.1.zip
   steps:
    - run:
       name: Download files
@@ -95,7 +95,7 @@ jobs:
    artifact: 
     - xilinx_zcu104_base_202010_1.zip
     - aarch64-xilinx-linux.zip
-    - xilinx-zynqmp-common-v2020.1.tar.gz
+    - xilinx-zynqmp-common-v2020.1.zip
   steps: 
    - run:
       name: Build HW
