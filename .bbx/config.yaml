@@ -19,7 +19,7 @@ jobs:
     - sw_emu.sh
     - Emulation-SW/launch.sh
     - Emulation-SW/launch.expect
-    - Emulation-HW/package
+    - Emulation-SW/package
   steps:
    - run:
       name: Download files
