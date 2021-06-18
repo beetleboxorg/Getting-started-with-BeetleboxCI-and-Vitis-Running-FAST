@@ -50,8 +50,11 @@ jobs:
   current_working_directory: /tools/Xilinx/Vitis/2020.1/workspace/test_fast_CI 
   output:
    artifact:
-    - Emulation-HW
+    - Emulation-HW/build.sh
     - hw_emu.sh
+    - Emulation-HW/launch.sh
+    - Emulation-HW/launch.expect
+    - Emulation-HW/package
   input: 
    artifact: 
     - xilinx_zcu104_base_202010_1.zip
