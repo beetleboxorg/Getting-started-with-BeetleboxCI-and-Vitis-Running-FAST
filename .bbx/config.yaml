@@ -15,11 +15,8 @@ jobs:
     - xilinx-zynqmp-common-v2020.1.tar.gz
   output:
    artifact:
-    - Emulation-SW/build.sh
+    - Emulation-SW
     - sw_emu.sh
-    - Emulation-SW/launch.sh
-    - Emulation-SW/launch.expect
-    - Emulation-SW/package
   steps:
    - run:
       name: Download files
@@ -53,11 +50,8 @@ jobs:
   current_working_directory: /tools/Xilinx/Vitis/2020.1/workspace/test_fast_CI 
   output:
    artifact:
-    - Emulation-HW/build.sh
+    - Emulation-HW
     - hw_emu.sh
-    - Emulation-HW/launch.sh
-    - Emulation-HW/launch.expect
-    - Emulation-HW/package
   input: 
    artifact: 
     - xilinx_zcu104_base_202010_1.zip
