@@ -1,4 +1,4 @@
-# Getting started with BeeltleboxCI and Vitis: Running FAST 
+# Getting started with BeetleboxCI and Vitis: Running FAST 
 
 
 This is a tutorial designed to show how to get started using BeetleboxCI and Vitis, in which we will cover the following: 
