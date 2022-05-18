@@ -1,6 +1,6 @@
 runners:
  AWS-runner:
-  image: ubuntu-vitis-2020-1
+  image: work1-virtualbox:5000/ubuntu-vitis-2020-1
 
 jobs:   
  build-SW-emu:
@@ -10,9 +10,9 @@ jobs:
   current_working_directory: /tools/Xilinx/Vitis/2020.1/workspace/test_fast_CI 
   input: 
    artifact: 
-    - xilinx_zcu104_base_202010_1.zip
-    - aarch64-xilinx-linux.zip
-    - xilinx-zynqmp-common-v2020.1.zip
+    - user_plat.zip
+    - aarch64-xilinx-linux2020_1.zip
+    - xilinx-zynqmp-common-v2020.1.tar.gz
   output:
    artifact:
     - Emulation-SW
@@ -38,7 +38,7 @@ jobs:
   input: 
    artifact: 
     - build-SW-emu
-    - xilinx_zcu104_base_202010_1.zip
+    - user_plat.zip
   steps:
    - run:
       name: Run Software Emulation
@@ -57,9 +57,9 @@ jobs:
     - Emulation-HW/package
   input: 
    artifact: 
-    - xilinx_zcu104_base_202010_1.zip
-    - aarch64-xilinx-linux.zip
-    - xilinx-zynqmp-common-v2020.1.zip
+    - user_plat.zip
+    - aarch64-xilinx-linux2020_1.zip
+    - xilinx-zynqmp-common-v2020.1.tar.gz
   steps:
    - run:
       name: Download files
@@ -81,7 +81,7 @@ jobs:
   input: 
    artifact: 
     - build-HW-emu
-    - xilinx_zcu104_base_202010_1.zip
+    - user_plat.zip
   steps:
    - run:
       name: Hardware Emulation
@@ -93,9 +93,9 @@ jobs:
   current_working_directory: /tools/Xilinx/Vitis/2020.1/workspace/test_fast_CI 
   input: 
    artifact: 
-    - xilinx_zcu104_base_202010_1.zip
-    - aarch64-xilinx-linux.zip
-    - xilinx-zynqmp-common-v2020.1.zip
+    - user_plat.zip
+    - aarch64-xilinx-linux2020_1.zip
+    - xilinx-zynqmp-common-v2020.1.tar.gz
   steps: 
    - run:
       name: Build HW
