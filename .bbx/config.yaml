@@ -44,6 +44,7 @@ jobs:
       name: Run Software Emulation
       command: ./sw_emu.sh  
  build-HW-emu:
+  resource_spec: medium 
   runner: AWS-runner
   type:
    build: hw-emulation
@@ -72,6 +73,7 @@ jobs:
       command: Emulation-HW/build.sh
       type: hw-emulation  
  test-hw-emulation:
+  resource_spec: medium 
   runner: AWS-runner
   depends:
    - build-HW-emu
@@ -87,6 +89,7 @@ jobs:
       name: Hardware Emulation
       command: ./hw_emu.sh 
  build-HW:
+  resource_spec: large 
   runner: AWS-runner
   type:
    build: hardware
