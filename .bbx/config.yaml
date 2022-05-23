@@ -1,6 +1,6 @@
 runners:
  AWS-runner:
-  image: ip-192-168-102-216:5000/ubuntu-vitis-2020-1
+  image: ubuntu-vitis-2020-1
 
 jobs:   
  build-SW-emu:
@@ -10,9 +10,9 @@ jobs:
   current_working_directory: /tools/Xilinx/Vitis/2020.1/workspace/test_fast_CI 
   input: 
    artifact: 
-    - user_plat.zip
-    - aarch64-xilinx-linux2020_1.zip    
-    - xilinx-zynqmp-common-v2020.1.tar.gz    
+    - xilinx_zcu104_base_202010_1.zip
+    - aarch64-xilinx-linux.zip
+    - xilinx-zynqmp-common-v2020.1.zip
   output:
    artifact:
     - Emulation-SW
@@ -38,13 +38,12 @@ jobs:
   input: 
    artifact: 
     - build-SW-emu
-    - user_plat.zip
+    - xilinx_zcu104_base_202010_1.zip
   steps:
    - run:
       name: Run Software Emulation
       command: ./sw_emu.sh  
  build-HW-emu:
-  resource_spec: medium 
   runner: AWS-runner
   type:
    build: hw-emulation
@@ -58,9 +57,9 @@ jobs:
     - Emulation-HW/package
   input: 
    artifact: 
-    - user_plat.zip
-    - aarch64-xilinx-linux2020_1.zip    
-    - xilinx-zynqmp-common-v2020.1.tar.gz    
+    - xilinx_zcu104_base_202010_1.zip
+    - aarch64-xilinx-linux.zip
+    - xilinx-zynqmp-common-v2020.1.zip
   steps:
    - run:
       name: Download files
@@ -73,7 +72,6 @@ jobs:
       command: Emulation-HW/build.sh
       type: hw-emulation  
  test-hw-emulation:
-  resource_spec: medium 
   runner: AWS-runner
   depends:
    - build-HW-emu
@@ -83,22 +81,21 @@ jobs:
   input: 
    artifact: 
     - build-HW-emu
-    - user_plat.zip
+    - xilinx_zcu104_base_202010_1.zip
   steps:
    - run:
       name: Hardware Emulation
       command: ./hw_emu.sh 
  build-HW:
-  resource_spec: large 
   runner: AWS-runner
   type:
    build: hardware
   current_working_directory: /tools/Xilinx/Vitis/2020.1/workspace/test_fast_CI 
   input: 
    artifact: 
-    - user_plat.zip
-    - aarch64-xilinx-linux2020_1.zip    
-    - xilinx-zynqmp-common-v2020.1.tar.gz    
+    - xilinx_zcu104_base_202010_1.zip
+    - aarch64-xilinx-linux.zip
+    - xilinx-zynqmp-common-v2020.1.zip
   steps: 
    - run:
       name: Build HW
