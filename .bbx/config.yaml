@@ -60,9 +60,9 @@ jobs:
     - Emulation-HW/package
   input: 
    artifact: 
-    - user_plat.zip
-    - aarch64-xilinx-linux2020_1.zip
-    - xilinx-zynqmp-common-v2020.1.tar.gz
+    - user_plat2.zip
+    - aarch64-xilinx-linux2020_1_2.zip
+    - xilinx-zynqmp-common-v2020.1_2.tar.gz
   steps:
    - run:
       name: Download files
@@ -85,7 +85,7 @@ jobs:
   input: 
    artifact: 
     - build-HW-emu
-    - user_plat.zip
+    - user_plat2.zip
   steps:
    - run:
       name: Hardware Emulation
@@ -98,9 +98,9 @@ jobs:
   current_working_directory: /tools/Xilinx/Vitis/2020.1/workspace/test_fast_CI 
   input: 
    artifact: 
-    - user_plat.zip
-    - aarch64-xilinx-linux2020_1.zip
-    - xilinx-zynqmp-common-v2020.1.tar.gz
+    - user_plat3.zip
+    - aarch64-xilinx-linux2020_1_3.zip
+    - xilinx-zynqmp-common-v2020.1_3.tar.gz
   steps: 
    - run:
       name: Build HW
