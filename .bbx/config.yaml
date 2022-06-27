@@ -109,8 +109,4 @@ jobs:
 workflows:
  complete-build-test:
   jobs:
-   - build-SW-emu
-   - test-sw-emulation
-   - build-HW-emu
-   - test-hw-emulation
    - build-HW
