@@ -91,7 +91,7 @@ jobs:
       name: Hardware Emulation
       command: ./hw_emu.sh 
  build-HW:
-  resource_spec: large 
+  resource_spec: medium 
   runner: AWS-runner
   type:
    build: hardware
