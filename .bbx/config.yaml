@@ -88,6 +88,23 @@ jobs:
    - run:
       name: Hardware Emulation
       command: ./hw_emu.sh 
+ build-HW:
+  resource_spec: small 
+  runner: AWS-runner
+  type:
+   build: hardware
+  current_working_directory: /tools/Xilinx/Vitis/2020.1/workspace/test_fast_CI 
+  input: 
+   artifact: 
+    - user_plat3.zip
+    - aarch64-xilinx-linux2020_1_3.zip
+    - xilinx-zynqmp-common-v2020.1_3.tar.gz
+  steps: 
+   - run:
+      name: Build HW
+      command: Hardware/build.sh
+      type: Hardware 
+      
 workflows:
  complete-build-test:
   jobs:
@@ -95,3 +112,4 @@ workflows:
    - test-sw-emulation
    - build-HW-emu
    - test-hw-emulation
+   - build-HW
