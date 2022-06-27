@@ -12,7 +12,7 @@ jobs:
   input: 
    artifact: 
     - xilinx_zcu104_base_202010_1.zip
-    - aarch64-xilinx-linux.zip
+    - aarch64-xilinx-linux2020_1.zip
     - xilinx-zynqmp-common-v2020.1.zip
   output:
    artifact:
@@ -61,7 +61,7 @@ jobs:
   input: 
    artifact: 
     - xilinx_zcu104_base_202010_1.zip
-    - aarch64-xilinx-linux.zip
+    - aarch64-xilinx-linux2020_1.zip
     - xilinx-zynqmp-common-v2020.1.zip
   steps:
    - run:
@@ -99,7 +99,7 @@ jobs:
   input: 
    artifact: 
     - xilinx_zcu104_base_202010_1.zip
-    - aarch64-xilinx-linux.zip
+    - aarch64-xilinx-linux2020_1.zip
     - xilinx-zynqmp-common-v2020.1.zip
   steps: 
    - run:
