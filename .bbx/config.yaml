@@ -88,8 +88,9 @@ jobs:
    - run:
       name: Hardware Emulation
       command: ./hw_emu.sh 
+      
  build-hw-fast:
-  resource_spec: medium 
+  resource_spec: large 
   runner: AWS-runner
   type:
    build: hardware
@@ -104,16 +105,42 @@ jobs:
    artifact:
     - hw.sh
     - Hardware/build.sh
+    - Hardware/sleep.sh
+    - Hardware/ssh_retry.sh
+    - Hardware/run.expect
+    - Hardware/transfer.expect
     - Hardware/package
   steps: 
    - run:
+      name: Download files
+      command: |
+       cp /mnt/nfs/local_repos/test_images/* /tools/Xilinx/Vitis/2020.1/platforms/xilinx_zcu104_base_202010_1/sw/xilinx_zcu104_base_202010_1/xrt/image/
+      type: miscellaneous    
+   - run:
       name: Build HW
       command: Hardware/build.sh
-      type: Hardware 
+      type: Hardware       
       
+ run-hw:
+  resource_spec: small  
+  runner: AWS-runner
+  depends:
+   - build-hw-fast 
+  type:
+   test: hw-emulation
+  current_working_directory: /tools/Xilinx/Vitis/2020.1/workspace/test_fast_CI    
+  input: 
+   artifact: 
+    - user_plat.zip   
+    - build-hw-fast  
+  steps:
+   - run:
+      name: Run HW
+      command: ./hw.sh      
       
 workflows:
  complete-build-test:
   jobs:
-
    - build-hw-fast
+   - run-hw
+   
