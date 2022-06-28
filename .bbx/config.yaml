@@ -22,8 +22,7 @@ jobs:
    - run:
       name: Download files
       command: |
-       git clone https://github.com/mwijeyasinghebbx/test_images
-       mv test_images/* /tools/Xilinx/Vitis/2020.1/platforms/xilinx_zcu104_base_202010_1/sw/xilinx_zcu104_base_202010_1/xrt/image/
+       cp /mnt/nfs/local_repos/test_images/* /tools/Xilinx/Vitis/2020.1/platforms/xilinx_zcu104_base_202010_1/sw/xilinx_zcu104_base_202010_1/xrt/image/
       type: miscellaneous 
    - run:
       name: Run Software Emulation Build
@@ -67,8 +66,7 @@ jobs:
    - run:
       name: Download files
       command: |
-       git clone https://github.com/mwijeyasinghebbx/test_images
-       mv test_images/* /tools/Xilinx/Vitis/2020.1/platforms/xilinx_zcu104_base_202010_1/sw/xilinx_zcu104_base_202010_1/xrt/image/
+       cp /mnt/nfs/local_repos/test_images/* /tools/Xilinx/Vitis/2020.1/platforms/xilinx_zcu104_base_202010_1/sw/xilinx_zcu104_base_202010_1/xrt/image/
       type: miscellaneous  
    - run:
       name: Run Hardware Emulation Build
