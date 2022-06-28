@@ -88,7 +88,7 @@ jobs:
    - run:
       name: Hardware Emulation
       command: ./hw_emu.sh 
- build-HW:
+ build-hw-fast:
   resource_spec: medium 
   runner: AWS-runner
   type:
@@ -115,5 +115,8 @@ jobs:
 workflows:
  complete-build-test:
   jobs:
-
-   - build-HW
+   - build-SW-emu
+   - test-sw-emulation
+   - build-HW-emu
+   - test-hw-emulation
+   - build-hw-fast
