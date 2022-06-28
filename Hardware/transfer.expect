@@ -1,0 +1,24 @@
+#!/usr/bin/expect -f
+
+set timeout -1
+
+spawn scp -o "UserKnownHostsFile=/dev/null" -o "StrictHostKeyChecking=no" Hardware/package/sd_card/binary_container_1.xclbin Hardware/package/sd_card/test_fast_CI Hardware/package/sd_card/boot.scr Hardware/package/sd_card/BOOT.BIN Hardware/package/sd_card/init.sh Hardware/package/sd_card/system.dtb Hardware/package/sd_card/fruit.png Hardware/package/sd_card/hd_image.jpg Hardware/package/sd_card/high_res.jpg Hardware/package/sd_card/i480.jpg Hardware/package/sd_card/i640.jpg Hardware/package/sd_card/i720.jpg Hardware/package/sd_card/i1081x1.jpg Hardware/package/sd_card/image.png Hardware/package/sd_card/image127.png Hardware/package/sd_card/image384.png Hardware/package/sd_card/low_hd.jpg Hardware/package/sd_card/odd.png Hardware/package/sd_card/small_image.png Hardware/package/sd_card/test_image.jpg root@192.168.1.86:/mnt/sd-mmcblk0p1/
+
+expect "*ssword:"
+send "root\n"
+
+expect "$"
+spawn ssh -o "UserKnownHostsFile=/dev/null" -o "StrictHostKeyChecking=no" root@192.168.1.86
+
+expect "*ssword:"
+send "root\n"
+
+expect "~# "
+send "set_reboot sys\n"
+
+expect "~# "
+send "reboot\n"
+
+expect "NOW!"
+exit
+

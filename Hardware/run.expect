@@ -1,0 +1,40 @@
+#!/usr/bin/expect -f
+
+set timeout -1
+
+spawn Hardware/ssh_retry.sh -o "UserKnownHostsFile=/dev/null" -o "StrictHostKeyChecking=no" root@192.168.1.86
+
+expect "*ssword:"
+send "root\n"
+
+expect "# "
+send "\n"
+
+expect "# "
+send "cd /mnt\n"
+
+expect "# "
+send "cd sd-mmcblk0p1\n"
+
+expect "# "
+send "source ./init.sh\n"
+
+expect "# "
+send "export XILINX_XRT=/usr"
+send "\n"
+
+expect "# "
+send "./test_fast_CI  small_image.png\n"
+
+expect {
+	-re "Failed" {
+		send "exit\n"
+		exit -1
+	}
+	-re "Passed" {
+		send "exit\n"
+		exit 0
+	}
+}
+
+
