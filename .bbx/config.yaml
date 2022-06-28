@@ -3,117 +3,22 @@ runners:
   image: work1-virtualbox:5000/ubuntu-vitis-2020-1
 
 jobs:   
- build-SW-emu:
-  resource_spec: small
+ run-hw:
+  resource_spec: small  
   runner: AWS-runner
-  type:
-   build: software
-  current_working_directory: /tools/Xilinx/Vitis/2020.1/workspace/test_fast_CI 
-  input: 
-   artifact: 
-    - user_plat.zip
-    - aarch64-xilinx-linux2020_1.zip
-    - xilinx-zynqmp-common-v2020.1.tar.gz
-  output:
-   artifact:
-    - Emulation-SW
-    - sw_emu.sh
-  steps:
-   - run:
-      name: Download files
-      command: |
-       cp /mnt/nfs/local_repos/test_images/* /tools/Xilinx/Vitis/2020.1/platforms/xilinx_zcu104_base_202010_1/sw/xilinx_zcu104_base_202010_1/xrt/image/
-      type: miscellaneous 
-   - run:
-      name: Run Software Emulation Build
-      command: Emulation-SW/build.sh
-      type: sw-emulation    
- test-sw-emulation:
-  resource_spec: small 
-  runner: AWS-runner
-  depends:
-   - build-SW-emu
-  type:
-   test: sw-emulation
-  current_working_directory: /tools/Xilinx/Vitis/2020.1/workspace/test_fast_CI 
-  input: 
-   artifact: 
-    - build-SW-emu
-    - user_plat.zip
-  steps:
-   - run:
-      name: Run Software Emulation
-      command: ./sw_emu.sh  
- build-HW-emu:
-  resource_spec: small 
-  runner: AWS-runner
-  type:
-   build: hw-emulation
-  current_working_directory: /tools/Xilinx/Vitis/2020.1/workspace/test_fast_CI 
-  output:
-   artifact:
-    - Emulation-HW/build.sh
-    - hw_emu.sh
-    - Emulation-HW/launch.sh
-    - Emulation-HW/launch.expect
-    - Emulation-HW/package
-  input: 
-   artifact: 
-    - user_plat.zip
-    - aarch64-xilinx-linux2020_1.zip
-    - xilinx-zynqmp-common-v2020.1.tar.gz
-  steps:
-   - run:
-      name: Download files
-      command: |
-       cp /mnt/nfs/local_repos/test_images/* /tools/Xilinx/Vitis/2020.1/platforms/xilinx_zcu104_base_202010_1/sw/xilinx_zcu104_base_202010_1/xrt/image/
-      type: miscellaneous  
-   - run:
-      name: Run Hardware Emulation Build
-      command: Emulation-HW/build.sh
-      type: hw-emulation  
- test-hw-emulation:
-  resource_spec: small 
-  runner: AWS-runner
-  depends:
-   - build-HW-emu
   type:
    test: hw-emulation
-  current_working_directory: /tools/Xilinx/Vitis/2020.1/workspace/test_fast_CI 
+  current_working_directory: /tools/Xilinx/Vitis/2020.1/workspace/test_fast_CI    
   input: 
    artifact: 
-    - build-HW-emu
-    - user_plat.zip
+    - build-hw-fast.tar.gz   
   steps:
    - run:
-      name: Hardware Emulation
-      command: ./hw_emu.sh 
- build-HW:
-  resource_spec: medium 
-  runner: AWS-runner
-  type:
-   build: hardware
-  current_working_directory: /tools/Xilinx/Vitis/2020.1/workspace/test_fast_CI 
-  input: 
-   artifact: 
-    - user_plat.zip
-    - aarch64-xilinx-linux2020_1.zip
-    - xilinx-zynqmp-common-v2020.1.tar.gz
-    - Vitis_Libraries_2020_1.tar.gz    
-  output:
-   artifact:
-    - hw.sh
-    - Hardware/build.sh
-    - Hardware/package
-  steps: 
-   - run:
-      name: Build HW
-      command: Hardware/build.sh
-      type: Hardware 
+      name: Run HW
+      command: ./hw.sh
       
       
 workflows:
  complete-build-test:
   jobs:
-
-   - build-HW
+   - run-HW
