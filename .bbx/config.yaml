@@ -100,11 +100,17 @@ jobs:
     - aarch64-xilinx-linux2020_1.zip
     - xilinx-zynqmp-common-v2020.1.tar.gz
     - Vitis_Libraries_2020_1.tar.gz    
+  output:
+   artifact:
+    - hw.sh
+    - Hardware/build.sh
+    - Hardware/package
   steps: 
    - run:
       name: Build HW
       command: Hardware/build.sh
       type: Hardware 
+      
       
 workflows:
  complete-build-test:
