@@ -19,6 +19,6 @@ jobs:
       
       
 workflows:
- complete-build-test:
+ hw-workflow:
   jobs:
    - run-hw
