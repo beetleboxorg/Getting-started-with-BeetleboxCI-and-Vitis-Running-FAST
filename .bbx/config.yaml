@@ -103,7 +103,6 @@ jobs:
     - Vitis_Libraries_2020_1.tar.gz    
   output:
    artifact:
-    - hw.sh
     - Hardware/build.sh
     - Hardware/sleep.sh
     - Hardware/ssh_retry.sh
