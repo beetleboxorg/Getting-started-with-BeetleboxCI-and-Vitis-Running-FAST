@@ -24,7 +24,7 @@ send "export XILINX_XRT=/usr"
 send "\n"
 
 expect "# "
-send "./test_fast_CI  bbb-splash.png\n"
+send "./test_fast_CI  hd_image.jpg\n"
 
 expect {
 	-re "Failed" {
