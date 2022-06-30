@@ -14,7 +14,6 @@ jobs:
     - build-hw-fast.tar.gz   
   output:
    artifact:
-    - Hardware/build.sh
     - output_hls.png
   steps:
    - run:
