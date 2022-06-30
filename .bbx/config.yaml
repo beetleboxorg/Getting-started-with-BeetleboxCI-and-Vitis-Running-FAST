@@ -109,6 +109,7 @@ jobs:
     - Hardware/ssh_retry.sh
     - Hardware/run.expect
     - Hardware/transfer.expect
+    - Hardware/transfer_output.expect
     - Hardware/package
   steps: 
    - run:
