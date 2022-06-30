@@ -24,10 +24,11 @@ int main(int argc, char** argv) {
         return EXIT_FAILURE;
     }
 
-    cv::Mat in_gray, out_img, out_img_ocv, out_hls;
+    cv::Mat in_gray, out_img, out_img_ocv, out_hls, in_col;
 
     // Reading in the image:
     in_gray = cv::imread(argv[1], 0);
+    in_col = cv::imread(argv[1], 1);
 
     if (!in_gray.data) {
         std::cout << "ERROR: Cannot open image " << argv[2] << std::endl;
@@ -37,7 +38,7 @@ int main(int argc, char** argv) {
     std::vector<cv::KeyPoint> keypoints;
 
     // Threshold for fast:
-    unsigned char threshold = 20;
+    unsigned char threshold = 50;
 
     // Output allocation from HLS implementation:
     out_hls.create(in_gray.rows, in_gray.cols, in_gray.depth());
@@ -145,7 +146,7 @@ int main(int argc, char** argv) {
     }
 
     cv::imwrite("output_ocv.png", out_img_ocv);
-    out_img = in_gray.clone();
+    out_img = in_col.clone();
 
     for (int j = 0; j < out_hls.rows; j++) {
         for (int i = 0; i < out_hls.cols; i++) {
@@ -218,8 +219,6 @@ int main(int argc, char** argv) {
         std::cout << "ERROR: Test Failed." << std::endl;
         return EXIT_FAILURE;
     }
-    
-    printf("Passed\n");
-
+    print("Passed", flush=True);
     return 0;
 }
