@@ -140,7 +140,11 @@ jobs:
       
 workflows:
  complete-build-test:
-  jobs:
+  jobs:  
+   - build-SW-emu
+   - test-sw-emulation
+   - build-HW-emu
+   - test-hw-emulation
    - build-hw-fast
 
    
