@@ -12,11 +12,13 @@ jobs:
   input: 
    artifact: 
     - build-hw-fast.tar.gz   
+  output:
+   artifact:
+    - Hardware/package/sd_card/output_hls.jpg
   steps:
    - run:
       name: Run HW
-      command: ./hw.sh
-      
+      command: ./hw.sh 
       
 workflows:
  hw-workflow:
