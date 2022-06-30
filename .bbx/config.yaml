@@ -15,6 +15,7 @@ jobs:
   output:
    artifact:
     - Hardware/build.sh
+    - output_hls.png
   steps:
    - run:
       name: Run HW
