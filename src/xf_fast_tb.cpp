@@ -219,6 +219,6 @@ int main(int argc, char** argv) {
         std::cout << "ERROR: Test Failed." << std::endl;
         return EXIT_FAILURE;
     }
-    print("Passed", flush=True);
+    printf("Passed\n");
     return 0;
 }
