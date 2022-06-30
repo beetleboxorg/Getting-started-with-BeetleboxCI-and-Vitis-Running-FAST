@@ -218,6 +218,8 @@ int main(int argc, char** argv) {
         std::cout << "ERROR: Test Failed." << std::endl;
         return EXIT_FAILURE;
     }
+    
+    printf("Passed\n");
 
     return 0;
 }
