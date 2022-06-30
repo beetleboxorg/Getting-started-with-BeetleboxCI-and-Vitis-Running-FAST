@@ -146,6 +146,5 @@ workflows:
    - test-sw-emulation   
    - build-HW-emu
    - test-hw-emulation
-   - build-hw-fast
 
    
