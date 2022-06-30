@@ -14,8 +14,7 @@ jobs:
     - build-hw-fast.tar.gz   
   output:
    artifact:
-    - Hardware/package/sd_card/output_hls.jpg
-    - Hardware/package/xilinx_zcu104_base_202010_1.bif
+    - Hardware/build.sh
   steps:
    - run:
       name: Run HW
