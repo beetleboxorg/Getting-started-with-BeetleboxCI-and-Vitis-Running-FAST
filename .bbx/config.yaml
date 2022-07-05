@@ -101,8 +101,23 @@ jobs:
     - user_plat.zip
     - aarch64-xilinx-linux2020_1.zip
     - xilinx-zynqmp-common-v2020.1.tar.gz
-    - Vitis_Libraries_2020_1.tar.gz    
+    - Vitis_Libraries_2020_1.tar.gz
+  output:
+   artifact:
+    - Hardware/build.sh
+    - Hardware/sleep.sh
+    - Hardware/ssh_retry.sh
+    - Hardware/run.expect
+    - Hardware/transfer.expect
+    - Hardware/transfer_output.expect
+    - Hardware/package    
   steps: 
+   - run:
+      name: Download files
+      command: |
+       git clone https://github.com/mwijeyasinghebbx/test_images
+       mv test_images/* /tools/Xilinx/Vitis/2020.1/platforms/xilinx_zcu104_base_202010_1/sw/xilinx_zcu104_base_202010_1/xrt/image/
+      type: miscellaneous    
    - run:
       name: Build HW
       command: Hardware/build.sh
