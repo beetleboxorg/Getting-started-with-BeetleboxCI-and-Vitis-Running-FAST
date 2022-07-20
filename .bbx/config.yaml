@@ -17,8 +17,17 @@ jobs:
     - output_hls.png
   steps:
    - run:
-      name: Run HW
-      command: ./hw.sh 
+      name: Update SD card
+      command: Hardware/transfer.expect
+   - run:
+      name: Sleep
+      command: Hardware/sleep.sh
+   - run:
+      name: Run
+      command: Hardware/run.expect
+   - run:
+      name: Retrieve output
+      command: Hardware/transfer_output.expect    
       
 workflows:
  hw-workflow:
