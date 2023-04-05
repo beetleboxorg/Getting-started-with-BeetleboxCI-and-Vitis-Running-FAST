@@ -137,7 +137,8 @@ jobs:
    - run:
       name: Run HW
       command: ./hw.sh      
-      
+
+
 workflows:
  complete-build-test:
   jobs:  
@@ -146,5 +147,3 @@ workflows:
    - build-HW-emu
    - test-hw-emulation
    - build-hw-fast
-
-   
