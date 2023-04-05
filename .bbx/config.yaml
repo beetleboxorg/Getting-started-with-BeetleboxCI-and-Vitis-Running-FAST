@@ -122,6 +122,7 @@ jobs:
       name: Build HW
       command: Hardware/build.sh
       type: Hardware 
+
 workflows:
  complete-build-test:
   jobs:
